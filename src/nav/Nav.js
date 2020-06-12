@@ -27,7 +27,10 @@ const Nav = props => {
           <Link to="/profile">Profile</Link>
         </li>
         <li>
-          <a href="/" onClick={handleLogout}>Logout</a>
+          <Link to="/event">Events</Link>
+        </li>
+        <li>
+          <a href="/login" onClick={handleLogout}>Logout</a>
         </li>
       </span>
     )
@@ -36,9 +39,6 @@ const Nav = props => {
   return (
     <nav>
       <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
         {links}
       </ul>
     </nav>
