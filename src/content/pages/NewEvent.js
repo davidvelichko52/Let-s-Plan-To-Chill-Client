@@ -17,7 +17,7 @@ const handleSubmit = e => {
     e.preventDefault()
 
     console.log('submit')
-    fetch(process.env.REACT_APP_SERVER_URL + 'events/new', {
+    fetch((process.env.REACT_APP_SERVER_URL || "https://lets-chill.herokuapp.com/") + 'events/new', {
         method: 'POST',
         body: JSON.stringify({
         location,

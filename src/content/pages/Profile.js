@@ -9,7 +9,7 @@ const Profile = props => {
     let token = localStorage.getItem('boilerToken')
 
     // Make a call to a protected route
-    fetch(process.env.REACT_APP_SERVER_URL + 'profile', {
+    fetch((process.env.REACT_APP_SERVER_URL || "https://lets-chill.herokuapp.com/") + 'profile', {
       headers: {
         'Authorization': `Bearer ${token}`
       }

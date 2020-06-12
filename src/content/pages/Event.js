@@ -9,7 +9,7 @@ const Event = props => {
   },[])
   const callApi = () => {
     // console.log('yooo', props.user._id);
-    axios.get(process.env.REACT_APP_SERVER_URL + 'events')
+    axios.get((process.env.REACT_APP_SERVER_URL || "https://lets-chill.herokuapp.com/") + 'events')
     .then(response => {
       let data = response.data
       console.log('here is the data', data)

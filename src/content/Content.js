@@ -11,6 +11,7 @@ import Event from './pages/Event'
 import NewEvent from './pages/NewEvent'
 import SingleEvent from './pages/SingleEvent'
 
+
 const Content = props => {
 
 
