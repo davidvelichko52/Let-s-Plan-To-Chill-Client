@@ -16,7 +16,7 @@ const Signup = props => {
     // Send the user sign up data to the server
     console.log('submit', email, password)
     // Fetch call to POST data
-    fetch(process.env.REACT_APP_SERVER_URL || "https://lets-chill.herokuapp.com/" + 'auth/signup', {
+    fetch((process.env.REACT_APP_SERVER_URL || "https://lets-chill.herokuapp.com/") + 'auth/signup', {
       method: 'POST',
       body: JSON.stringify({
         email,
