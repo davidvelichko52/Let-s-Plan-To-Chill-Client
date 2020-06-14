@@ -1,52 +1,75 @@
 import React, { useEffect, useState }  from 'react';
-import axios from 'axios'
-import { Redirect, Link } from 'react-router-dom'
+
 
 const SingleEvent = props => {
- 
-    let [events, setEvents] = useState([])
-    useEffect (() => {
-      callApi()
-    },[])
-    const callApi = () => {
-      // console.log('yooo', props.user._id);
-      axios.get((process.env.REACT_APP_SERVER_URL || "https://lets-chill.herokuapp.com/") + 'events')
-      .then(response => {
-        let data = response.data
-        console.log('here is the data', data)
-        setEvents(data)
-      })
-      .catch(err => {
-        console.log('Error!', err)
-      })
-    }
+    let [chat, setChat] = useState('')
+    let [event, setEvent] = useState({})
+    let [showChat, setShowChat] = useState(<p></p>)
 
-    
-// fix later
-    // if (!props.user) {
-    //     return <Redirect to="/login" />
-    //   }
+    useEffect(() => {
+        let token = localStorage.getItem('boilerToken')
+        fetch(process.env.REACT_APP_SERVER_URL + 'events/singleEvent/' + props.id, {
+          headers:{
+            'Authorization': `Bearer ${token}`
+          }
+        })
+        .then(response => response.json())
+        .then(result => { 
+          setEvent(result)
+          setShowChat(result.chats.map((p) => {
+            return (
+            <div>
+            <h3>{p.content}</h3>
+            <hr/>
+            </div>
+            )
+          }))
+        })
+        
+        
+      }, [])
 
+    const handleSubmit = e => {
+        let token = localStorage.getItem('boilerToken')
+        e.preventDefault()
+      
+       console.log('submit:', chat)
+        fetch(process.env.REACT_APP_SERVER_URL + 'events/singleEvent/' + props.id, {
+            method: 'POST',
+            body: JSON.stringify({
+             content: chat
+            }),
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${token}`
+            }
+          })
+          
+            .catch(err => {
+                console.log('ERROR SUBMITTING:', err)
+              })
+              window.location.reload(false);
+        }
 
-  let posters = events.map((p, index) => {
-    return (
-      <div>
-        <h1>{p.date}</h1>
-        <h1>{p.location}</h1>
-        <img src={p.pic} alt="picture of location"/>
-        <h2>{p.description}</h2>
-        <h2>{p.things}</h2>
-  
-      </div>
-    )
-  })
+console.log('heres', event)
+        
+
 
   return (
+      <div>
     <div>
-
-      {posters}
-      
-
+        <h2>{event.location}</h2>
+        {showChat}
+    </div>
+    <div>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <input name="content" rows="5" cols="18" placeholder="chat" onChange={e => setChat(e.target.value)}/>
+        </div>
+        <br />
+        <button type="submit">Comment!</button>
+      </form>
+    </div>
     </div>
   )
 }
