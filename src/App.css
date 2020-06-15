@@ -62,11 +62,52 @@ nav a:hover {
   overflow: hidden;
   height: 200px;
   width: auto;
+  border: solid black 2px;
 }
 
 #eventname{
   text-align: left;
-  padding-left: 40px;
+  padding-left: 20px;
+  font-family: 'Staatliches', cursive;
+  color: white;
 }
 
+#proname{
+  font-family: 'Staatliches', cursive;
+   
+}
 
+#nameofevent{
+  color: white;
+  text-decoration: none;
+  font-family: 'Staatliches', cursive;
+}
+#makeevent{
+  color: rgb(161, 193, 223);
+  text-decoration: none;
+  font-family: 'Staatliches', cursive;
+}
+
+#eventinfo{
+  color: white;
+  font-family: 'Staatliches', cursive;
+}
+
+#eventpic{
+  width: 30vw;
+}
+
+#chatbox{
+  margin-top: 40px;
+  background-color: rgb(79, 115, 129);
+}
+
+#chatwords{
+  font-family: 'Staatliches', cursive;
+}
+
+#map{
+  padding-bottom: 40px;
+  margin: auto;
+  width: 35%;
+}

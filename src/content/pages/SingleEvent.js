@@ -20,7 +20,7 @@ const SingleEvent = props => {
           setShowChat(result.chats.map((p) => {
             return (
             <div>
-            <h3>{p.content}</h3>
+            <h3 id="chatwords">{p.content}</h3>
             <hr/>
             </div>
             )
@@ -70,18 +70,25 @@ console.log('he', event)
 
   return (
     <div>
-    <div >
-    <ReactMapGL
+    <div id="map" >
+    <ReactMapGL 
       {...viewport} mapboxApiAccessToken={process.env.REACT_APP_MAP_TOKEN}
       onViewportChange={nextViewport => setViewPort(nextViewport)}
     />
-  </div>
+    </div>
+  
 
       <div>
     <div>
-        <h2>{event.location}</h2>
-        {showChat}
+        <h3 id="eventinfo"><strong> Where:</strong> {event.location} &emsp; <strong>When:</strong> {event.date} &emsp; <strong>Description:</strong> {event.description}</h3>
+        <h3 id="eventinfo"><strong>Things to bring: </strong> {event.things}</h3>
+        <img id="eventpic" src={event.pic} alt={event.location} />
+        <br/>
     </div>
+
+    <div id="chatbox">
+        {showChat}
+        </div>
     <div>
       <form onSubmit={handleSubmit}>
         <div>

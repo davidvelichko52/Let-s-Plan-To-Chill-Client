@@ -31,13 +31,14 @@ console.log("ere", props.event)
       })
       .then(response => {
         //console.log('looking at response.json', response.json());
-        // setIsSubmit(true)
+       
         setLocation('')
         setPic('')
         setDescription('')
         setDate('')
         setThings('')
-        
+        setIsSubmit(true)
+        window.location.reload(false);
 
     })
     }
@@ -47,7 +48,7 @@ console.log("ere", props.event)
       return <Redirect to="/profile" />
     }
   
-console.log('helloffrfc4rfrfeffe', props.event.event)
+
 
   return (
     <div>

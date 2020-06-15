@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Redirect, Link } from 'react-router-dom'
+import Button from 'react-bootstrap/Button'
 
 const Event = props => {
   let [events, setEvents] = useState([])
@@ -31,9 +32,15 @@ const Event = props => {
   let posters = events.map((p, index) => {
     return (
       <div key={index}>
-  <Link to={`/singleEvent/${p._id}`}>
-        <h1>{p.location}</h1>
+       
+          
+  <Link id="nameofevent" to={`/singleEvent/${p._id}`}>
+        
+        <h1 id="nameofevent">{p.location}</h1>
+        
   </Link>
+  
+  
       </div>
     )
   })
@@ -43,8 +50,9 @@ const Event = props => {
     <div>
 
       {posters}
-      <Link to="/newEvent">make a event</Link>
-
+    <Button>
+      <Link id="makeevent" to="/newEvent"><h2>Plan a trip!!!!</h2></Link>
+    </Button>
     </div>
   
   )

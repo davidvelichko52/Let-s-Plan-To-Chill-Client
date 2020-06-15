@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Redirect, Link } from 'react-router-dom'
-
+import Button from 'react-bootstrap/Button'
 const Profile = props => {
   let [secretMessage, setSecretMessage] = useState('')
   let token = localStorage.getItem('boilerToken')
@@ -59,17 +59,18 @@ const Profile = props => {
     return <Redirect to="/login" />
   }
 
-  let events = props.events.map((e) => {
-    if (e.user === props.user._id) {
+  let events = props.events.map((p) => {
+    if (p.user === props.user._id) {
     return (
 
  <div id="eventname">
-   <h1>{e.location}</h1>
-   <button class="edit" onClick={() => {
-      handleDelete(e._id)
+   <h3>{p.location}</h3>
+   <Button class="edit" onClick={() => {
+      handleDelete(p._id)
 
-    }}><p>Delete</p></button>
-    <Link to={`/edit/${e._id}`}><button class="edit" onClick={(e) => props.handleCurrentEvent(e, e._id)} ><p>Edit</p></button></Link>
+    }}>Delete</Button>
+    <Link to={`/edit/${p._id}`}><Button class="edit" onClick={(e) => props.handleCurrentEvent(e, p._id)} >Edit</Button></Link>
+    
   </div>
     )
   }
@@ -78,7 +79,7 @@ const Profile = props => {
   return (
     <div>
       <img id="profilepicture" src={props.user.pic} alt={props.user.firstname} />
-      <h1>
+      <h1 id="proname">
         {props.user.firstname}
       </h1>
       <h2 id="eventname">List of events:</h2>
