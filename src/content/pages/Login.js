@@ -45,7 +45,7 @@ const Login = props => {
   }
 
   if (props.user) {
-    return <Redirect to="/profile" />
+    return <Redirect to="/event" />
   }
 
   return (

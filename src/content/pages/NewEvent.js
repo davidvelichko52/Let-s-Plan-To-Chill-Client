@@ -45,12 +45,13 @@ const handleSubmit = e => {
           })
     }
     if (!props.user) {
-      return <Redirect to="/login" />
+      return <Redirect to="/login/" />
     }
 
     if (isSubmit) {
       return <Redirect to="/event" />
     }
+
 
 
     return (

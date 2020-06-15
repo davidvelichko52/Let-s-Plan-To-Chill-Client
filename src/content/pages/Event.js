@@ -26,6 +26,8 @@ const Event = props => {
     return <Redirect to="/login" />
   }
 
+  
+
   let posters = events.map((p, index) => {
     return (
       <div key={index}>
@@ -36,6 +38,7 @@ const Event = props => {
     )
   })
 
+
   return (
     <div>
 
@@ -43,8 +46,8 @@ const Event = props => {
       <Link to="/newEvent">make a event</Link>
 
     </div>
+  
   )
- 
 }
 
 export default Event
