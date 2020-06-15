@@ -58,8 +58,8 @@ const SingleEvent = props => {
       }
     
             const [viewport, setViewPort ] = useState({
-              width: "100vw",
-              height: "100vh",
+              width: "50vw",
+              height: "50vh",
               latitude: 47.6062,
               longitude: -122.3321,
               zoom: 10

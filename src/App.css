@@ -1,16 +1,14 @@
 .App {
   text-align: center;
-}
+ 
+  background-image: url("https://wallpaperplay.com/walls/full/1/c/a/221366.jpg");
+height: 100vh;
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-position: center;
+background-size: cover;
+overflow: scroll;
 
-.App-header {
-  background-color: lightslategray;
-  min-height: 20vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 main {
@@ -18,14 +16,19 @@ main {
 }
 
 footer {
-  background-color: #282c34;
+  background-color: #3a4f7e;
   color: white;
   font-size: 16px;
-  padding: 15px;
+  padding:15px;
+  bottom: 0;
+  width: 100%;
+  clear: both;
+  
+  
 }
 
 nav {
-  background-color: #282c34;
+  background-color: #3a4f7e;
   padding: 2px;
 }
 
@@ -43,7 +46,7 @@ nav a,
 nav a:visited {
   text-decoration: none;
   font-size: 22px;
-  color: mediumspringgreen;
+  color: white;
 }
 
 nav a:hover {
@@ -52,6 +55,18 @@ nav a:hover {
 
 .red {
   color: red;
+}
+
+#profilepicture{
+  border-radius: 50%;
+  overflow: hidden;
+  height: 200px;
+  width: auto;
+}
+
+#eventname{
+  text-align: left;
+  padding-left: 40px;
 }
 
 
